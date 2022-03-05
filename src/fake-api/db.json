@@ -1,0 +1,48 @@
+{
+  "posts": [
+    {
+      "username": "Admin",
+      "location": "Ukraine",
+      "image_url": "https://preview.redd.it/wsoh5uuewxj31.jpg?auto=webp&s=e9ea562304f5f516e99b789edea2921dd9806c27",
+      "number_of_likes": 213424,
+      "caption": "When thanos snaps and ur dick turns into dust inside that pussy",
+      "id": 1
+    },
+    {
+      "username": "Admin",
+      "location": "No More Racism",
+      "image_url": "https://preview.redd.it/8uqk7an3wbz21.jpg?auto=webp&s=c91b7cdcb4a509fd7f8da9b843fb975e0bbf8b26",
+      "number_of_likes": 53451,
+      "caption": "Wait holup is that a monkey?????",
+      "id": 2
+    },
+    {
+      "username": "Admin",
+      "location": "Area 51",
+      "image_url": "https://ahseeit.com/anime/king-include/uploads/2021/02/125198641_1095653730876747_5353216878246094970_n-9712893570.jpg",
+      "number_of_likes": 123534,
+      "caption": "Damn bruh, i thought id get some good alien cheeks tonight. Somehow got my cheeks clapped by 12 inch long tentacles. smh",
+      "id": 3
+    }
+  ],
+  "comments": [
+    {
+      "id": 1,
+      "username": "Naruto",
+      "content": "Lorem ipsum dolor sit amet consectetur adipisicing elit.",
+      "postId": 1
+    },
+    {
+      "id": 2,
+      "username": "Sasuke",
+      "content": "Lorem ipsum dolor sit amet consectetur adipisicing elit.",
+      "postId": 1
+    },
+    {
+      "username": "Admin2",
+      "content": "yooooo",
+      "postId": 3,
+      "id": 3
+    }
+  ]
+}

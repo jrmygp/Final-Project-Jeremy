@@ -1,79 +1,146 @@
+import { useState } from "react";
 import {
-    Card,
-    CardBody,
-    CardTitle,
-    CardSubtitle,
-    CardText,
-    Button,
-  } from "reactstrap";
-  import { FaHeart } from "react-icons/fa"
-  import { IoIosPaperPlane } from "react-icons/io";
-  import { MdReportProblem } from "react-icons/md";
-  import newyork from "./twintower.jpeg";
-  
-  const ContentCard = (props) => {
-    const likePost = (amount) => {
-      props.numberOfLikes += 1;
-      alert(`Liked post ${props.numberOfLikes}`);
-    };
-    return (
-      <Card>
-        <CardBody>
-          <CardTitle tag="h5" className="fw-bold">
-            {props.username}
-          </CardTitle>
-          <CardSubtitle tag="h6" className="text-muted mb-4">
-            {props.location}
-          </CardSubtitle>
-          <img
-            style={{
-              width: "100%",
-            }}
-            className="rounded"
-            src={newyork}
-            alt="user's content"
-          />
-          <CardText tag="h6" className="fw-bold mt-3">
-            {props.numberOfLikes.toLocaleString()} People like this.
-          </CardText>
-          <CardText>
-            <span className="fw-bold">{props.username} </span>{" "}
-            <span>
-              {props.caption.length > 140 ? props.caption.slice(0, 140) + "..." : props.caption}
-            </span>
-          </CardText>
-          <div className="d-flex">
-            <Button
-              onClick={() => likePost(14)}
-              color="danger"
-              className="d-flex justify-content-center align-items-center"
-            >
-              <FaHeart/>
-            </Button>
-  
-            <Button
-              color="danger"
-              className="d-flex justify-content-center align-items-center ms-2"
-            >
-              <MdReportProblem />
-            </Button>
-          </div>
-  
-          <CardText className="mt-3">
-            <div className="input-group mb-3">
-              <input
-                type="text"
-                className="form-control"
-                placeholder="Add Comment"
-              />{" "}
-              <button className="btn btn-outline-secondary" type="button">
-                <IoIosPaperPlane />
-              </button>
-            </div>
-          </CardText>
-        </CardBody>
-      </Card>
-    );
+  Avatar,
+  Box,
+  Text,
+  Image,
+  Button,
+  Icon,
+  Input,
+} from "@chakra-ui/react";
+import axios from "axios";
+import { HiEmojiHappy, HiOutlineEmojiHappy } from "react-icons/hi";
+import { IoIosPaperPlane } from "react-icons/io";
+import { RiSkull2Fill, RiSkull2Line } from "react-icons/ri";
+import { GoVerified } from "react-icons/go";
+import { HiLocationMarker } from "react-icons/hi";
+import Comment from "../Comment-Section/Comment";
+
+const ContentCard = ({
+  username,
+  location,
+  caption,
+  numberOfLikes,
+  imageUrl,
+  id,
+}) => {
+  const [comments, setComments] = useState([]);
+  const [commentInput, setCommentInput] = useState("");
+
+  const [displayCommentInput, setDisplayCommentInput] = useState(false);
+
+  const fetchComments = () => {
+    axios
+      .get(`http://localhost:2000/comments`, {
+        params: {
+          postId: id,
+        },
+      })
+      .then((res) => {
+        setComments(res.data);
+      });
   };
-  export default ContentCard;
-  
+
+  const renderComments = () => {
+    return comments.map((val) => {
+      return <Comment content={val.content} username={val.username} />;
+    });
+  };
+
+  const handleCommentInput = (event) => {
+    const { value } = event.target;
+
+    setCommentInput(value);
+  };
+
+  const postNewComment = () => {
+    const newData = {
+      username: "Admin2",
+      content: commentInput,
+      postId: id,
+    };
+
+    axios.post(`http://localhost:2000/comments`, newData).then(() => {
+      fetchComments();
+      setDisplayCommentInput(false);
+    });
+  };
+
+  return (
+    <Box
+      backgroundColor="black"
+      color="#3CFF00"
+      borderWidth="1px"
+      borderRadius="lg"
+      maxW="lg"
+      paddingY="2"
+      marginY="4"
+    >
+      <Box paddingX="3" display="flex" alignItems="center" marginBottom={1}>
+        <Avatar
+          src="https://i.quotev.com/img/q/u/12/06/08/2952594-killua.jpg"
+          size="md"
+        />
+        <Box
+          display="flex"
+          justifyContent="center"
+          flexDirection="column"
+          marginLeft={2}
+        >
+          <Box display="flex" alignItems="center">
+            <Text>{username}</Text>{" "}
+            <Icon boxSize={3.5} as={GoVerified} marginLeft={1} />
+          </Box>
+          <Box display="flex" alignItems="center">
+            <Icon boxSize={3} as={HiLocationMarker} marginRight="1" />
+            <Text fontSize="xs">{location}</Text>
+          </Box>
+        </Box>
+      </Box>
+
+      <Image padding={2} src={imageUrl} />
+      <Box paddingX="3">
+        <Text fontWeight="bold">
+          {numberOfLikes.toLocaleString()} People approve this.
+        </Text>
+        <Text>
+          <span className="fw-bold">{username} </span>{" "}
+          <span>
+            {caption.length > 140 ? caption.slice(0, 140) + "..." : caption}
+          </span>
+        </Text>
+        <Box display="flex" marginTop={4} borderBottom="1px" paddingBottom={2}>
+          <Icon boxSize={6} as={HiOutlineEmojiHappy}></Icon>
+          <Icon boxSize={6} as={RiSkull2Line} marginLeft={2}></Icon>
+        </Box>
+      </Box>
+      {/* 
+      {displayCommentInput ? ( */}
+      <Box marginTop={4} padding={3} display="flex" alignItems="center">
+        <Input
+          onChange={handleCommentInput}
+          onClick={() => setDisplayCommentInput(true)}
+          type="text"
+          placeholder="Insert flame comment here!"
+        />
+        <Icon
+          boxSize={6}
+          as={IoIosPaperPlane}
+          onClick={postNewComment}
+          marginLeft="5"
+          marginRight="5"
+        />
+      </Box>
+      {/* // ) : null} */}
+
+      {comments.length === 0 ? (
+        <Button onClick={fetchComments} size="xs" backgroundColor="black" marginLeft={2}>
+          See Comments
+        </Button>
+      ) : null}
+
+      {renderComments()}
+    </Box>
+  );
+};
+export default ContentCard;
