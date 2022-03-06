@@ -43,6 +43,12 @@
       "content": "yooooo",
       "postId": 3,
       "id": 3
+    },
+    {
+      "username": "Admin2",
+      "content": "Mariska jelek",
+      "postId": 3,
+      "id": 4
     }
   ]
 }
