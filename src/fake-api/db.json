@@ -28,14 +28,14 @@
   "comments": [
     {
       "id": 1,
-      "username": "Naruto",
-      "content": "Lorem ipsum dolor sit amet consectetur adipisicing elit.",
+      "username": "Admin2",
+      "content": "Take this down now!",
       "postId": 1
     },
     {
       "id": 2,
-      "username": "Sasuke",
-      "content": "Lorem ipsum dolor sit amet consectetur adipisicing elit.",
+      "username": "Admin3",
+      "content": "Lmao funny dude",
       "postId": 1
     },
     {
