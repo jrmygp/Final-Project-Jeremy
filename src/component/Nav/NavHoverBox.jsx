@@ -11,7 +11,7 @@ const NavHoverBox = ( {icon, title, description}) => {
         height={0}
         borderTop="10px solid transparent"
         borderBottom="10px solid transparent"
-        borderRight="10px solid #82AAAD"/>
+        borderRight="10px solid black"/>
         <Flex
         h={200}
         w={200}
@@ -19,9 +19,9 @@ const NavHoverBox = ( {icon, title, description}) => {
         flexDir="column"
         alignItems="center"
         justify="center"
-        backgroundColor="#82AAAD"
+        backgroundColor="black"
         borderRadius="10px"
-        color="white"
+        color="#3CFF00"
         textAlign="center"
         >
             <Icon as={icon} fontSize="3xl" mb={4}/>
