@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import ContentCard from "./component/ContentCard/ContentCard";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./assets/Email-sign-up.css";
@@ -31,19 +31,19 @@ function App() {
     });
   };
 
+  useEffect(() => {
+    fetchContentList()
+  }, [])
+
+  // useEffect(() => {
+  //   alert("terjadi perubahan state")
+  // }, [username])
+
   return (
     <Box display="flex">
       <Nav/>
 
-      <Box paddingY="8" marginLeft={20}>
-        <Button
-          marginBottom="4"
-          onClick={fetchContentList}
-          backgroundColor="black"
-          color="rgb(8, 223, 8)"
-        >
-          Fetch Posts
-        </Button>
+      <Box paddingY="1" marginLeft={20}>
         {renderContentList()}
       </Box>
     </Box>
