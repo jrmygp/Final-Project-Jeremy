@@ -7,6 +7,7 @@ import {
   Text,
   IconButton,
   background,
+  LinkBox,
 } from "@chakra-ui/react";
 import { FaHome } from "react-icons/fa";
 import { CgProfile } from "react-icons/cg";
@@ -14,14 +15,16 @@ import { IoMdSettings } from "react-icons/io";
 import { GrUploadOption } from "react-icons/gr";
 import { BsThreeDotsVertical } from "react-icons/bs";
 import { HiLogout } from "react-icons/hi";
-import { BsPlusSquareFill } from "react-icons/bs"
+import { BsPlusSquareFill } from "react-icons/bs";
 import NavItems from "../Nav/NavItems";
+import { Link } from "react-router-dom";
 
 const Nav = () => {
   const [navSize, changeNavSize] = useState("large");
   return (
     <Flex
       position="sticky"
+      top="5"
       left="5"
       h="95vh"
       marginTop="2.5vh"
@@ -53,20 +56,32 @@ const Nav = () => {
             }
           }}
         />
-        <NavItems
-          navSize={navSize}
-          icon={FaHome}
-          title="Home"
-          description=""
-        />
-        <NavItems navSize={navSize} icon={CgProfile} title="Your Profile" />
+        <Link to="/">
+          <NavItems
+            navSize={navSize}
+            icon={FaHome}
+            title="Home"
+            description=""
+          />
+        </Link>
+
+        <Link to="/ProfilePage">
+          <NavItems navSize={navSize} icon={CgProfile} title="Your Profile" />
+        </Link>
+
         <NavItems
           navSize={navSize}
           icon={BsPlusSquareFill}
           title="Upload Memes"
         />
-        <NavItems navSize={navSize} icon={IoMdSettings} title="Settings" />
-        <NavItems navSize={navSize} icon={HiLogout} title="Logout" />
+
+        <Link to="/Settings">
+          <NavItems navSize={navSize} icon={IoMdSettings} title="Settings" />
+        </Link>
+
+        <Link to="/LoginPage">
+          <NavItems navSize={navSize} icon={HiLogout} title="Logout" />
+        </Link>
       </Flex>
 
       <Flex

@@ -27,12 +27,12 @@ const NavItems = ({ navSize, icon, title, active, description }) => {
         w={navSize == "large" && "100%"}>
           <MenuButton w="100%">
             <Flex>
-              <Icon as={icon} fontSize="xl" color={active ? "#82AAAD" : "gray.500" }/>
+              <Icon as={icon} fontSize="xl" color={active ? "#82AAAD" : "#3CFF00" }/>
               <Text ml={4} display={navSize == "small" ? "none" : "flex"}>{title}</Text>
             </Flex>
           </MenuButton>
         </Link>
-        <MenuList
+        {/* <MenuList
         py={0}
         border="none"
         w={200}
@@ -40,7 +40,7 @@ const NavItems = ({ navSize, icon, title, active, description }) => {
         ml={6}
         boxShadow="0 4px 12px 0 rgba(0,0,0,0.2)">
             <NavHoverBox title={title} icon={icon} description={description}/>
-        </MenuList>
+        </MenuList> */}
       </Menu>
     </Flex>
   );
