@@ -1,7 +1,7 @@
 {
   "posts": [
     {
-      "username": "Admin",
+      "userId": 1,
       "location": "Ukraine",
       "image_url": "https://preview.redd.it/wsoh5uuewxj31.jpg?auto=webp&s=e9ea562304f5f516e99b789edea2921dd9806c27",
       "number_of_likes": 213424,
@@ -9,7 +9,7 @@
       "id": 1
     },
     {
-      "username": "Admin",
+      "userId": 1,
       "location": "No More Racism",
       "image_url": "https://preview.redd.it/8uqk7an3wbz21.jpg?auto=webp&s=c91b7cdcb4a509fd7f8da9b843fb975e0bbf8b26",
       "number_of_likes": 53451,
@@ -17,7 +17,7 @@
       "id": 2
     },
     {
-      "username": "Admin",
+      "userId": 1,
       "location": "Area 51",
       "image_url": "https://ahseeit.com/anime/king-include/uploads/2021/02/125198641_1095653730876747_5353216878246094970_n-9712893570.jpg",
       "number_of_likes": 123534,
@@ -28,21 +28,35 @@
   "comments": [
     {
       "id": 1,
-      "username": "Admin2",
+      "userId": 1,
       "content": "Take this down now!",
       "postId": 1
     },
     {
       "id": 2,
-      "username": "Admin3",
+      "userID": 2,
       "content": "Lmao funny dude",
       "postId": 1
     },
     {
-      "username": "Admin2",
+      "userId": 3,
       "content": "yooooo",
       "postId": 3,
       "id": 3
+    }
+  ],
+  "users": [
+    {
+      "id": 1,
+      "username": "Admin Killua"
+    },
+    {
+      "id": 2,
+      "username": "Admin2"
+    },
+    {
+      "id": 3,
+      "username": "Admin3"
     }
   ]
 }

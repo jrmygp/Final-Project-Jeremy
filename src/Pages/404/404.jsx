@@ -1,8 +1,10 @@
-import { Text } from "@chakra-ui/react"
+import { Center, Text } from "@chakra-ui/react";
 const NotFoundPage = () => {
-    return (
-        <Text as="h1">404 Page Not Found</Text>
-    )
-}
+  return (
+    <Center display="flex">
+      <Text as="h1">404 Page Not Found</Text>
+    </Center>
+  );
+};
 
-export default NotFoundPage
+export default NotFoundPage;

@@ -12,7 +12,6 @@ import {
 import { FaHome } from "react-icons/fa";
 import { CgProfile } from "react-icons/cg";
 import { IoMdSettings } from "react-icons/io";
-import { GrUploadOption } from "react-icons/gr";
 import { BsThreeDotsVertical } from "react-icons/bs";
 import { HiLogout } from "react-icons/hi";
 import { BsPlusSquareFill } from "react-icons/bs";
@@ -31,17 +30,15 @@ const Nav = () => {
       boxShadow="0 4px 12px 0 rgba(0,0,0,0.2)"
       backgroundColor="black"
       color="#3CFF00"
-      borderRadius={navSize == "small" ? "15px" : "30px"}
-      w={navSize == "small" ? "75px" : "200px"}
+      borderRadius={navSize === "small" ? "15px" : "30px"}
+      w={navSize === "small" ? "75px" : "200px"}
       flexDir="column"
       justifyContent="space-between"
     >
       <Flex
         p="5%"
         flexDir="column"
-        alignItems="flex-start"
         as="nav"
-        alignItems="center"
       >
         <IconButton
           background="none"
@@ -49,7 +46,7 @@ const Nav = () => {
           _hover={{ background: "none" }}
           icon={<BsThreeDotsVertical />}
           onClick={() => {
-            if (navSize == "small") {
+            if (navSize === "small") {
               changeNavSize("large");
             } else {
               changeNavSize("small");
@@ -69,11 +66,13 @@ const Nav = () => {
           <NavItems navSize={navSize} icon={CgProfile} title="Your Profile" />
         </Link>
 
+          <Link to="/UploadPage">
         <NavItems
           navSize={navSize}
           icon={BsPlusSquareFill}
           title="Upload Memes"
         />
+          </Link>
 
         <Link to="/Settings">
           <NavItems navSize={navSize} icon={IoMdSettings} title="Settings" />
@@ -88,10 +87,10 @@ const Nav = () => {
         padding="5%"
         flexDir="column"
         w="100%"
-        alignItems={navSize == "small" ? "center" : "flex-start"}
+        alignItems={navSize === "small" ? "center" : "flex-start"}
         mb={4}
       >
-        <Divider display={navSize == "small" ? "none" : "flex"} />
+        <Divider display={navSize === "small" ? "none" : "flex"} />
         <Flex mt={4} align="center">
           <Avatar
             src="https://i.quotev.com/img/q/u/12/06/08/2952594-killua.jpg"
@@ -100,7 +99,7 @@ const Nav = () => {
           <Flex
             flexDir="column"
             ml={4}
-            display={navSize == "small" ? "none" : "flex"}
+            display={navSize === "small" ? "none" : "flex"}
           >
             <Heading as="h3" size="sm">
               Admin

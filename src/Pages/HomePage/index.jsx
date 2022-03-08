@@ -8,16 +8,18 @@ function HomePage() {
   const [contentList, setContentList] = useState([]);
 
   const fetchContentList = () => {
-    axios.get("http://localhost:2000/posts").then((res) => {
-      setContentList(res.data);
-    });
+    axios
+      .get("http://localhost:2000/posts", { params: { _expand: "user" } })
+      .then((res) => {
+        setContentList(res.data);
+      });
   };
 
   const renderContentList = () => {
     return contentList.map((val) => {
       return (
         <ContentCard
-          username={val.username}
+          username={val.user.username}
           caption={val.caption}
           imageUrl={val.image_url}
           location={val.location}
@@ -34,7 +36,7 @@ function HomePage() {
   }, []);
 
   return (
-    <Center display="flex">
+    <Center>
       <Box paddingY="1" marginLeft={20}>
         {renderContentList()}
       </Box>
