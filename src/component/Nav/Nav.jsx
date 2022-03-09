@@ -8,6 +8,7 @@ import {
   IconButton,
   background,
   LinkBox,
+  textDecoration,
 } from "@chakra-ui/react";
 import { FaHome } from "react-icons/fa";
 import { CgProfile } from "react-icons/cg";
@@ -34,11 +35,15 @@ const Nav = () => {
       w={navSize === "small" ? "75px" : "200px"}
       flexDir="column"
       justifyContent="space-between"
+      border="1px solid white"
     >
       <Flex
         p="5%"
         flexDir="column"
         as="nav"
+        marginTop="30px"
+        
+        
       >
         <IconButton
           background="none"
@@ -53,7 +58,7 @@ const Nav = () => {
             }
           }}
         />
-        <Link to="/">
+        <Link to="/" style={{textDecoration: "none"}}>
           <NavItems
             navSize={navSize}
             icon={FaHome}

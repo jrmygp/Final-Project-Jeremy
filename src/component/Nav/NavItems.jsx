@@ -20,10 +20,9 @@ const NavItems = ({ navSize, icon, title, active, description }) => {
     >
       <Menu placement="right">
         <Link
-        backgroundColor={active && "#AEC8CA"}
         p={3}
         borderRadius={8}
-        _hover={{textDecor: "none", backgroundColor: "#AEC8CA"}}
+        _hover={{textDecor: "none", backgroundColor: "black"}}
         w={navSize == "large" && "100%"}>
           <MenuButton w="100%">
             <Flex>
@@ -32,15 +31,6 @@ const NavItems = ({ navSize, icon, title, active, description }) => {
             </Flex>
           </MenuButton>
         </Link>
-        {/* <MenuList
-        py={0}
-        border="none"
-        w={200}
-        h={200}
-        ml={6}
-        boxShadow="0 4px 12px 0 rgba(0,0,0,0.2)">
-            <NavHoverBox title={title} icon={icon} description={description}/>
-        </MenuList> */}
       </Menu>
     </Flex>
   );

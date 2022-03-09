@@ -7,6 +7,8 @@ import UploadPage from "./Pages/UploadPage/UploadPage"
 import NotFoundPage from "./Pages/404/404";
 import Nav from "./component/Nav/Nav";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
+import Post from "./Pages/UserPostPage/Post";
+import "./assets/Background.css";
 
 function App() {
   return (
@@ -20,6 +22,7 @@ function App() {
             <Route path="/Settings" element={<Settings />} />
             <Route path="/LoginPage" element={<LoginPage />} />
             <Route path="/UploadPage" element={<UploadPage/>}/>
+            <Route path="/UserPostPage" element={<Post/>}/>
             <Route path="/*" element={<NotFoundPage />} />
           </Routes>
         </Box>
