@@ -65,17 +65,18 @@ const ProfilePage = () => {
         marginLeft={5}
         marginTop={5}
         borderRadius="lg"
+        border="1px solid #3CFF00"
       >
         <Box
           paddingTop={5}
           paddingLeft={5}
           paddingBottom={5}
           margin={2}
-          border="1px solid #3CFF00"
           color="#3CFF00"
           display="flex"
           alignItems="center"
           borderRadius="lg"
+          backgroundColor="black"
         >
           <Avatar
             src="https://i.quotev.com/img/q/u/12/06/08/2952594-killua.jpg"
@@ -87,16 +88,17 @@ const ProfilePage = () => {
             flexDirection="column"
             marginLeft={50}
             fontSize="3xl"
+            backgroundColor="black"
           >
-            <Box display="flex" alignItems="center">
-              <Text>{userData.username}</Text>
+            <Box display="flex" alignItems="center" backgroundColor="black">
+              <Text backgroundColor="black">{userData.username}</Text>
               <Icon as={GoVerified} ml={2} boxSize={4} />
             </Box>
-            <Text fontSize="lg">@AdmnKillua</Text>
-            <Box display="flex" fontSize="sm" marginTop={5}>
-              <Text marginRight={2}>0 Post</Text>
-              <Text marginRight={2}>0 Followers</Text>
-              <Text marginRight={2}>0 Ratings</Text>
+            <Text fontSize="lg" backgroundColor="black">@AdmnKillua</Text>
+            <Box display="flex" fontSize="sm" marginTop={5} backgroundColor="black">
+              <Text marginRight={2} backgroundColor="black">0 Post</Text>
+              <Text marginRight={2} backgroundColor="black">0 Followers</Text>
+              <Text marginRight={2} backgroundColor="black">0 Ratings</Text>
             </Box>
           </Box>
         </Box>
@@ -105,11 +107,13 @@ const ProfilePage = () => {
         alignItems="center"
         justifyContent="center"
         color="#3CFF00"
-        paddingTop={2}>
+        paddingTop={2}
+        backgroundColor="black"
+        borderTop="1px solid #3CFF00">
             <Icon as={ MdOutlinePhotoCamera }/>
             <Text marginLeft={2}/>POSTS
         </Box>
-        <Flex padding={8} justifyContent="space-between" borderRadius={5} >
+        <Flex padding={8} justifyContent="space-between" borderRadius={5} backgroundColor="black">
           {renderPost()}
         </Flex>
       </Box>

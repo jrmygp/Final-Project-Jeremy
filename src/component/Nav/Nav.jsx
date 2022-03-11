@@ -42,8 +42,7 @@ const Nav = () => {
         flexDir="column"
         as="nav"
         marginTop="30px"
-        
-        
+        backgroundColor="black"
       >
         <IconButton
           background="none"
@@ -58,7 +57,7 @@ const Nav = () => {
             }
           }}
         />
-        <Link to="/" style={{textDecoration: "none"}}>
+        <Link to="/" style={{ textDecoration: "none" }}>
           <NavItems
             navSize={navSize}
             icon={FaHome}
@@ -71,13 +70,13 @@ const Nav = () => {
           <NavItems navSize={navSize} icon={CgProfile} title="Your Profile" />
         </Link>
 
-          <Link to="/UploadPage">
-        <NavItems
-          navSize={navSize}
-          icon={BsPlusSquareFill}
-          title="Upload Memes"
-        />
-          </Link>
+        <Link to="/UploadPage">
+          <NavItems
+            navSize={navSize}
+            icon={BsPlusSquareFill}
+            title="Upload Memes"
+          />
+        </Link>
 
         <Link to="/Settings">
           <NavItems navSize={navSize} icon={IoMdSettings} title="Settings" />

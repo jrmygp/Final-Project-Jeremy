@@ -48,15 +48,24 @@
   "users": [
     {
       "id": 1,
-      "username": "Admin Killua"
+      "username": "Admin Killua",
+      "email" : "killua@gmail.com",
+      "full_name" : "Killua Zoldyck",
+      "password" : "password123"
     },
     {
       "id": 2,
-      "username": "Admin2"
+      "username": "Admin Gon",
+      "email" : "gon@gmail.com",
+      "full_name" : "Gon Freecss",
+      "password" : "password123"
     },
     {
       "id": 3,
-      "username": "Admin3"
+      "username": "Admin Kurapika",
+      "email": "kurapika@gmail.com",
+      "full_name": "Kurapika Kurta",
+      "password": "password123"
     }
   ]
 }
