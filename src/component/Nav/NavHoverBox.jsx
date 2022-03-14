@@ -1,5 +1,6 @@
 import React from "react";
 import { Flex, Heading, Text, Icon } from "@chakra-ui/react";
+
 const NavHoverBox = ( {icon, title, description}) => {
   return (
       <>
@@ -15,7 +16,6 @@ const NavHoverBox = ( {icon, title, description}) => {
         <Flex
         h={200}
         w={200}
-        w="100%"
         flexDir="column"
         alignItems="center"
         justify="center"

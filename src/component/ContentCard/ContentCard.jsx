@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import {
   Avatar,
   Box,
@@ -7,6 +7,7 @@ import {
   Button,
   Icon,
   Input,
+  Link,
 } from "@chakra-ui/react";
 import axios from "axios";
 import { HiEmojiHappy, HiOutlineEmojiHappy } from "react-icons/hi";
@@ -15,6 +16,7 @@ import { RiSkull2Fill, RiSkull2Line } from "react-icons/ri";
 import { GoVerified } from "react-icons/go";
 import { HiLocationMarker } from "react-icons/hi";
 import Comment from "../Comment-Section/Comment";
+import { axiosInstance } from "../../configs/api";
 
 const ContentCard = ({
   username,
@@ -23,9 +25,11 @@ const ContentCard = ({
   numberOfLikes,
   imageUrl,
   id,
+  profile_picture
 }) => {
   const [comments, setComments] = useState([]);
   const [commentInput, setCommentInput] = useState("");
+  // const [userData, setUserData] = useState({})
 
   const [displayCommentInput, setDisplayCommentInput] = useState(false);
 
@@ -66,6 +70,10 @@ const ContentCard = ({
     });
   };
 
+  // useEffect(() => {
+  //   fetchUserData()
+  // }, [])
+
   return (
     <Box
       backgroundColor="black"
@@ -77,10 +85,12 @@ const ContentCard = ({
       marginY="4"
     >
       <Box paddingX="3" display="flex" alignItems="center" marginBottom={1}>
-        <Avatar
-          src="https://i.quotev.com/img/q/u/12/06/08/2952594-killua.jpg"
-          size="md"
-        />
+        <Link to="/ProfilePage">
+          <Avatar
+            src={profile_picture}
+            size="md"
+          />
+        </Link>
         <Box
           display="flex"
           justifyContent="center"
@@ -134,7 +144,12 @@ const ContentCard = ({
       {/* // ) : null} */}
 
       {comments.length === 0 ? (
-        <Button onClick={fetchComments} size="xs" backgroundColor="black" marginLeft={2}>
+        <Button
+          onClick={fetchComments}
+          size="xs"
+          backgroundColor="black"
+          marginLeft={2}
+        >
           See Comments
         </Button>
       ) : null}

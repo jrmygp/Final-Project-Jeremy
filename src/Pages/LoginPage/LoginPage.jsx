@@ -1,12 +1,15 @@
 import { Box, Button, Center, FormLabel, Input, Text } from "@chakra-ui/react";
-import { axiosInstance } from "../../configs/api"
+import { axiosInstance } from "../../configs/api";
 import { useState } from "react";
+import { useSelector, useDispatch } from "react-redux";
+import { Navigate } from "react-router-dom"
 
 const LoginPage = () => {
   const [usernameInput, setUsernameInput] = useState("");
   const [passwordInput, setPasswordInput] = useState("");
 
-  const [userData, setUserData] = useState({});
+  const userSelector = useSelector((state) => state.user)
+  const dispatch = useDispatch();
 
   const inputHandler = (event, field) => {
     const { value } = event.target;
@@ -19,26 +22,35 @@ const LoginPage = () => {
 
   const loginBtnHandler = () => {
     axiosInstance
-      .get("/user_accounts", {
+      .get("/users", {
         params: {
           username: usernameInput,
           password: passwordInput,
         },
       })
       .then((res) => {
-        setUserData(res.data[0]);
+       const userData = res.data[0]
+
+       dispatch({
+         type: "USER_LOGIN",
+         payload: userData
+       })
+       localStorage.setItem("user_data", JSON.stringify(userData))
       })
       .catch((err) => {
         console.log(err);
       });
   };
 
+  if (userSelector.id) {
+    return <Navigate to="/"/>
+  }
+  
   return (
     <Center mt={10}>
-      <Box maxWidth="lg"
-      color="#3CFF00">
+      <Box maxWidth="lg" color="#3CFF00">
         <Text>Login Page</Text>
-        <Text>Logged in user: {userData?.username}</Text>
+        <Text>Logged in user: {userSelector?.username}</Text>
         <FormLabel>Username</FormLabel>
         <Input onChange={(event) => inputHandler(event, "username")} />
         <FormLabel>Password</FormLabel>
@@ -46,7 +58,9 @@ const LoginPage = () => {
           type="password"
           onChange={(event) => inputHandler(event, "password")}
         />
-        <Button onClick={loginBtnHandler} backgroundColor="black">Login</Button>
+        <Button onClick={loginBtnHandler} backgroundColor="black">
+          Login
+        </Button>
       </Box>
     </Center>
   );

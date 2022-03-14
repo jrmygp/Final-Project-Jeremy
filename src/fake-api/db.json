@@ -49,23 +49,29 @@
     {
       "id": 1,
       "username": "Admin Killua",
-      "email" : "killua@gmail.com",
-      "full_name" : "Killua Zoldyck",
-      "password" : "password123"
+      "usertag": "@AdmnKillua",
+      "email": "killua@gmail.com",
+      "full_name": "Killua Zoldyck",
+      "password": "password123",
+      "profile_picture": "https://i.quotev.com/img/q/u/12/06/08/2952594-killua.jpg"
     },
     {
       "id": 2,
       "username": "Admin Gon",
-      "email" : "gon@gmail.com",
-      "full_name" : "Gon Freecss",
-      "password" : "password123"
+      "usertag": "@AdmnGon",
+      "email": "gon@gmail.com",
+      "full_name": "Gon Freecss",
+      "password": "password123",
+      "profile_picture": "https://www.looper.com/img/gallery/hunter-x-hunter-season-7-release-date-cast-and-plot/l-intro-1621819883.jpg"
     },
     {
       "id": 3,
       "username": "Admin Kurapika",
+      "usertag": "@AdmnKurapika",
       "email": "kurapika@gmail.com",
       "full_name": "Kurapika Kurta",
-      "password": "password123"
+      "password": "password123",
+      "profile_picture": "https://w0.peakpx.com/wallpaper/5/464/HD-wallpaper-hair-too-long-pretty-blond-guy-kurapika-adorable-kurapica-sweet-nice-anime-evening-night-hunter-x-hunter-male-lovely-blonde-blonde-hair-blond-hair-short-hair-cute-boy-kawaii-dark.jpg"
     }
   ]
 }

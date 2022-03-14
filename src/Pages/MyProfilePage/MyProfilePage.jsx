@@ -4,31 +4,20 @@ import axios from "axios";
 import { Box, Text, Avatar, Icon, Center, Image, Flex, } from "@chakra-ui/react";
 import { GoVerified } from "react-icons/go";
 import { MdOutlinePhotoCamera } from "react-icons/md"
-import { Link } from "react-router-dom";
+import { useSelector } from "react-redux";
+import { axiosInstance } from "../../configs/api";
 
-const ProfilePage = () => {
-  const { userId } = useParams();
 
-  const [userData, setUserData] = useState({});
+const MyProfilePage = () => { 
+  const userSelector = useSelector( (state) => state.user)
   const [userPost, setUserPost] = useState([]);
 
-  const fetchUserData = () => {
-    axios
-      .get(`http://localhost:2000/users/${userId}`)
-      .then((res) => {
-        setUserData(res.data);
-      })
-      .catch((err) => {
-        console.log(err);
-        alert("Terjadi kesalahan di server");
-      });
-  };
 
   const fetchUserPosts = () => {
     axios
       .get(`http://localhost:2000/posts`, {
         params: {
-          userId: userId
+          userId: userSelector.id
         }
       })
       .then((res) => {
@@ -42,7 +31,6 @@ const ProfilePage = () => {
   };
 
   useEffect(() => {
-    fetchUserData();
     fetchUserPosts()
   }, []);
 
@@ -65,21 +53,21 @@ const ProfilePage = () => {
         marginLeft={5}
         marginTop={5}
         borderRadius="lg"
-        border="1px solid #3CFF00"
+        border="1px solid white"
       >
         <Box
           paddingTop={5}
           paddingLeft={5}
           paddingBottom={5}
           margin={2}
-          color="#3CFF00"
+          color="white"
           display="flex"
           alignItems="center"
           borderRadius="lg"
           backgroundColor="black"
         >
           <Avatar
-            src={userData.profile_picture}
+            src={userSelector.profile_picture}
             size="xl"
           />
 
@@ -91,10 +79,10 @@ const ProfilePage = () => {
             backgroundColor="black"
           >
             <Box display="flex" alignItems="center" backgroundColor="black">
-              <Text backgroundColor="black">{userData.username}</Text>
+              <Text backgroundColor="black">{userSelector.username}</Text>
               <Icon as={GoVerified} ml={2} boxSize={4} />
             </Box>
-            <Text fontSize="lg" backgroundColor="black">{userData.usertag}</Text>
+            <Text fontSize="lg" backgroundColor="black">{userSelector.usertag}</Text>
             <Box display="flex" fontSize="sm" marginTop={5} backgroundColor="black">
               <Text marginRight={2} backgroundColor="black">0 Post</Text>
               <Text marginRight={2} backgroundColor="black">0 Followers</Text>
@@ -106,10 +94,10 @@ const ProfilePage = () => {
         display="flex"
         alignItems="center"
         justifyContent="center"
-        color="#3CFF00"
+        color="white"
         paddingTop={2}
         backgroundColor="black"
-        borderTop="1px solid #3CFF00">
+        borderTop="1px solid white">
             <Icon as={ MdOutlinePhotoCamera }/>
             <Text marginLeft={2}/>POSTS
         </Box>
@@ -121,4 +109,4 @@ const ProfilePage = () => {
   );
 };
 
-export default ProfilePage;
+export default MyProfilePage;

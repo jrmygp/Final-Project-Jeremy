@@ -6,6 +6,22 @@ import { Box, Center } from "@chakra-ui/react";
 
 function HomePage() {
   const [contentList, setContentList] = useState([]);
+  const [userData, setUserData] = useState({})
+
+  // const fetchUserData = () => {
+  //   axiosInstance.get("/posts", {
+  //     params: {
+  //       _expand: user,
+  //     }
+  //   })
+  //   .then((res) => {
+  //     setUserData(res.data)
+  //   })
+  //   .catch((err) => {
+  //     console.log(err)
+  //     alert("Terjadi kesalahan pada server")
+  //   })
+  // }
 
   const fetchContentList = () => {
     axios
@@ -25,6 +41,7 @@ function HomePage() {
           location={val.location}
           numberOfLikes={val.number_of_likes}
           id={val.id}
+          profile_picture = {val?.user?.profile_picture}
         />
       );
     });
@@ -33,6 +50,7 @@ function HomePage() {
   // componentDidMount
   useEffect(() => {
     fetchContentList();
+    // fetchUserData()
   }, []);
 
   return (
